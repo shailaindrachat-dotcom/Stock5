@@ -1,6 +1,6 @@
 import requests
 
-APP_URL = "https://streamlit.app" # Change this to your URL
+APP_URL = "https://app7py-4q95yycvpvnw7ij7hifjyu.streamlit.app/" # Change this to your URL
 
 def ping_app():
     try:
