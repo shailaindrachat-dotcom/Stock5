@@ -1,0 +1,25 @@
+name: Keep App Awake
+
+on:
+  schedule:
+    # Runs every 40 minutes (Streamlit's inactivity timer is generous)
+    - cron: '*/40 * * * *'
+  workflow_dispatch: # Allows you to run it manually for testing
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run ping script
+        run: python keep_alive.py
